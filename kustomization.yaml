@@ -1,0 +1,4 @@
+  
+namespace: project-posted
+bases:
+  - ./workload

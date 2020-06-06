@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: project-posted
+  name: project-posted
+  labels:
+    app: project-posted
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project-posted
+  template:
+    metadata:
+      labels:
+        app: project-posted
+    spec:
+      containers:
+      - name: project-posted
+        image: devlaunchers/project_posted:latest
+        env:
+        - name: PORT
+          value: 4000
+        ports:
+        - containerPort: 4000
+        resources:
+          limits:
+            cpu: 500m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 64Mi
